@@ -1,3 +1,103 @@
+0x08. C - Recursion
+
+C
+
+Recursion
+
+ By: Julien Barbier
+
+ Weight: 1
+
+ Project will start Sep 28, 2022 6:00 AM, must end by Sep 29, 2022 6:00 AM
+
+ was released at Sep 28, 2022 6:00 AM
+
+ An auto review will be launched at the deadline
+
+
+
+
+
+Resources
+
+Read or watch:
+
+
+
+0x08. Recursion, introduction
+
+What on Earth is Recursion?
+
+C - Recursion
+
+C Programming Tutorial 85, Recursion pt.1
+
+C Programming Tutorial 86, Recursion pt.2
+
+Learning Objectives
+
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+
+
+
+General
+
+What is recursion
+
+How to implement recursion
+
+In what situations you should implement recursion
+
+In what situations you shouldn’t implement recursion
+
+Copyright - Plagiarism
+
+You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
+
+You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
+
+You are not allowed to publish any content of this project.
+
+Any form of plagiarism is strictly forbidden and will result in removal from the program.
+
+Requirements
+
+General
+
+Allowed editors: vi, vim, emacs
+
+All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
+
+All your files should end with a new line
+
+A README.md file, at the root of the folder of the project is mandatory
+
+Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+
+You are not allowed to use global variables
+
+No more than 5 functions per file
+
+You are not allowed to use the standard library. Any use of functions like printf, puts, etc… is forbidden
+
+You are allowed to use _putchar
+
+You don’t have to push _putchar.c, we will use our file. If you do it won’t be taken into account
+
+In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
+
+The prototypes of all your functions and the prototype of the function _putchar should be included in your header file called main.h
+
+Don’t forget to push your header file
+
+You are not allowed to use any kind of loops
+
+You are not allowed to use static variables
+
+Quiz questions
+
+Great! You've completed the quiz successfully! Keep going! (Show quiz)
+
 Tasks
 
 0. She locked away a secret, deep inside herself, something she once knew to be true... but chose to forget
@@ -573,3 +673,223 @@ GitHub repository: alx-low_level_programming
 Directory: 0x08-recursion
 
 File: 6-is_prime_number.c
+
+   
+
+7. They say we only use a fraction of our brain's true potential. Now that's when we're awake. When we're asleep, we can do almost anything
+
+#advanced
+
+Write a function that returns 1 if a string is a palindrome and 0 if not.
+
+
+
+Prototype: int is_palindrome(char *s);
+
+An empty string is a palindrome
+
+julien@ubuntu:~/0x08. Recursion$ cat 100-main.c
+
+#include "main.h"
+
+#include <stdio.h>
+
+
+
+/**
+
+ * main - check the code
+
+ *
+
+ * Return: Always 0.
+
+ */
+
+int main(void)
+
+{
+
+    int r;
+
+
+
+    r = is_palindrome("level");
+
+    printf("%d\n", r);
+
+    r = is_palindrome("redder");
+
+    printf("%d\n", r);
+
+    r = is_palindrome("test");
+
+    printf("%d\n", r);
+
+    r = is_palindrome("step on no pets");
+
+    printf("%d\n", r);
+
+    return (0);
+
+}
+
+julien@ubuntu:~/0x08. Recursion$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-is_palindrome.c -o 100-palindrome
+
+julien@ubuntu:~/0x08. Recursion$ ./100-palindrome 
+
+1
+
+1
+
+0
+
+1
+
+julien@ubuntu:~/0x08. Recursion$
+
+Repo:
+
+
+
+GitHub repository: alx-low_level_programming
+
+Directory: 0x08-recursion
+
+File: 100-is_palindrome.c
+
+   
+
+8. Inception. Now, before you bother telling me it's impossible...
+
+#advanced
+
+Write a function that compares two strings and returns 1 if the strings can be considered identical, otherwise return 0.
+
+
+
+Prototype: int wildcmp(char *s1, char *s2);
+
+s2 can contain the special character *.
+
+The special char * can replace any string (including an empty string)
+
+julien@ubuntu:~/0x08. Recursion$ cat 101-main.c
+
+#include "main.h"
+
+#include <stdio.h>
+
+
+
+/**
+
+ * main - check the code
+
+ *
+
+ * Return: Always 0.
+
+ */
+
+int main(void)
+
+{
+
+    int r;
+
+
+
+    r = wildcmp("main.c", "*.c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "m*a*i*n*.*c*");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "main.c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "m*c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "ma********************************c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "*");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "***");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "m.*c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main.c", "**.*c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main-main.c", "ma*in.c");
+
+    printf("%d\n", r);
+
+    r = wildcmp("main", "main*d");
+
+    printf("%d\n", r);
+
+    r = wildcmp("abc", "*b");
+
+    printf("%d\n", r);
+
+    return (0);
+
+}
+
+julien@ubuntu:~/0x08. Recursion$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 101-main.c 101-wildcmp.c -o 101-wildcmp
+
+julien@ubuntu:~/0x08. Recursion$ ./101-wildcmp 
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+0
+
+0
+
+julien@ubuntu:~/0x08. Recursion$ 
+
+Repo:
+
+
+
+GitHub repository: alx-low_level_programming
+
+Directory: 0x08-recursion
+
+File: 101-wildcmp.c
+
+   
